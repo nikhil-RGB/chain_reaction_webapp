@@ -335,6 +335,8 @@
             }
             explodeAt(butt) {
                 let expList = [butt];
+                let colc = this.RGBtoHEX(butt.style.background);
+                let then = new Date();
                 do {
                     let expElem = expList[0];
                     let ll = [];
@@ -354,6 +356,23 @@
                     }
                     expList = expList.concat(ll);
                     expList.splice(0, 1);
+                    let now = new Date();
+                    let t_elap = (now - then) / 1000;
+                    if (t_elap > 5)
+                    {
+                        for (let i = 0; i < this.xcoor; ++i)
+                        {
+                            for (let j = 0; j < this.ycoor; ++j)
+                            {
+                                let ele = this.array[i][j];
+                                if (!(ele.style.background == "#000000"))
+                                {
+                                    ele.style.background = colc;
+                                }
+                            }
+                        }
+                        break;
+                    }
                 }
                 while (expList.length > 0);
                 this.eliminationRound();
