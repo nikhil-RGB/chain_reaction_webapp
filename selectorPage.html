@@ -20,7 +20,14 @@
 <body>
     <div class="container" id="main_holderA"></div>
     <script>
-        class ChainUnit {
+        const view = window.matchMedia("only screen and (max-width: 760px)").matches;//If true, user is on a mobile device
+        const IS_MOBILE = view;
+        if (view)
+        {
+            alert("Looks like you're playing on a mobile device, device will be locked into landscape mode for an optimal user experience\nKeep in mind that the best experience of the web app is on a mobile device");
+            screen.orientation.lock("landscape");
+        }
+            class ChainUnit {
             constructor(x, y, arr, names = ["Players"]) {
                 this.tracker = 0;
                 this.xcoor = x;
@@ -138,6 +145,10 @@
                     this.playAudio();
                     this.shouldPlay = false;
                 }
+
+                //edited code for div
+                let divC = document.getElementById("main_holder");
+                divC.style.backgroundColor = this.cols[this.tracker];
             }
 
             eliminationRound() {
@@ -214,13 +225,13 @@
                 const elem2 = document.createElement("DIV");
                 elem.className = "container";
                 elem.id = "main_holder";
-                const link = document.createElement("LINK");
-                link.rel = "stylesheet";
-                link.href = "styles.css";
-                link.type = "text/css";
+                //const link = document.createElement("LINK");
+                //link.rel = "stylesheet";
+                //link.href = "styles.css";
+                //link.type = "text/css";
                 elemT.appendChild(elem);
                 elemT.appendChild(elem2);
-                elemT.appendChild(link);
+                //elemT.appendChild(link); commented out since HTML and css is linked here
             }
 
             initiateSetup(x = this.xcoor, y = this.ycoor) {
@@ -238,7 +249,10 @@
                         butt.style.background = "#000000";
                         butt.style.color = "white";
                         butt.style.width = "10%";
-                        butt.style.height = "50px";
+                        if (view)
+                        { butt.style.height = "20px"; }
+                        else
+                        { butt.style.height = "50px"; }
                         butt.addEventListener("click", e => this.onClick(e));
                         arr1.push(butt);
                         parent.appendChild(butt);
@@ -249,6 +263,9 @@
                 }
                 this.array = this.array.concat(arr);
 
+                //div coloring:
+                const elem = parent;
+                elem.style.backgroundColor = this.cols[0];
             }
 
             isCritical(butt, val = false) {
