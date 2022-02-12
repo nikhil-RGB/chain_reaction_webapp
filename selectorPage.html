@@ -20,14 +20,19 @@
 <body>
     <div class="container" id="main_holderA"></div>
     <script>
-        const view = window.matchMedia("only screen and (max-width: 760px)").matches;//If true, user is on a mobile device
+        const view = (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
+            (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)));//If true, user is on a mobile device
         const IS_MOBILE = view;
         if (view)
         {
-            alert("Looks like you're playing on a mobile device, device will be locked into landscape mode for an optimal user experience\nKeep in mind that the best experience of the web app is on a mobile device");
-            screen.orientation.lock("landscape");
+            alert("Looks like you're playing on a mobile device, please keep your device in landscape mode for an optimal expeience\nKeep in mind that the best experience of the web app is on a laptop/tablet");
+            
         }
-            class ChainUnit {
+        window.orientation="landscape";
+
+        
+            class ChainUnit 
+            {
             constructor(x, y, arr, names = ["Players"]) {
                 this.tracker = 0;
                 this.xcoor = x;
@@ -250,7 +255,7 @@
                         butt.style.color = "white";
                         butt.style.width = "10%";
                         if (view)
-                        { butt.style.height = "20px"; }
+                        { butt.style.height = "35px"; }
                         else
                         { butt.style.height = "50px"; }
                         butt.addEventListener("click", e => this.onClick(e));
