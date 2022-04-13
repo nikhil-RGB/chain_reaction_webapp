@@ -20,19 +20,19 @@
 <body>
     <div class="container" id="main_holderA"></div>
     <script>
+        //Additional comment-1
+        //Additional comment -2
         const view = (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
-            (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)));//If true, user is on a mobile device
+            (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform))); //If true, user is on a mobile device
         const IS_MOBILE = view;
-        if (view)
-        {
+        if (view) {
             alert("Looks like you're playing on a mobile device, please keep your device in landscape mode for an optimal expeience\nKeep in mind that the best experience of the web app is on a laptop/tablet");
-            
-        }
-        window.orientation="landscape";
 
-        
-            class ChainUnit 
-            {
+        }
+        window.orientation = "landscape";
+
+
+        class ChainUnit {
             constructor(x, y, arr, names = ["Players"]) {
                 this.tracker = 0;
                 this.xcoor = x;
@@ -168,7 +168,7 @@
                     }
                 }
                 colors = colors.map((item) => {
-                    
+
                     return this.RGBtoHEX(item);
                 });
                 let meh = [];
@@ -186,12 +186,12 @@
                     list += this.nns[ind] + "\'s ";
                     return item;
                 });
-                
+
                 for (let ev of meh) {
                     const ii = this.cols.indexOf(ev);
                     this.cols.splice(ii, 1);
                 }
-                
+
                 alert(list + " color(s) will now be completely eliminated/captured");
                 const winner = this.winnerA();
                 if (winner !== undefined) {
@@ -254,10 +254,11 @@
                         butt.style.background = "#000000";
                         butt.style.color = "white";
                         butt.style.width = "10%";
-                        if (view)
-                        { butt.style.height = "35px"; }
-                        else
-                        { butt.style.height = "50px"; }
+                        if (view) {
+                            butt.style.height = "35px";
+                        } else {
+                            butt.style.height = "50px";
+                        }
                         butt.addEventListener("click", e => this.onClick(e));
                         arr1.push(butt);
                         parent.appendChild(butt);
@@ -352,7 +353,7 @@
                 arr = arr.filter(function(e) {
                     return e !== undefined;
                 });
-                
+
                 return arr;
             }
             explodeAt(butt) {
@@ -380,15 +381,11 @@
                     expList.splice(0, 1);
                     let now = new Date();
                     let t_elap = (now - then) / 1000;
-                    if (t_elap > 5)
-                    {
-                        for (let i = 0; i < this.xcoor; ++i)
-                        {
-                            for (let j = 0; j < this.ycoor; ++j)
-                            {
+                    if (t_elap > 5) {
+                        for (let i = 0; i < this.xcoor; ++i) {
+                            for (let j = 0; j < this.ycoor; ++j) {
                                 let ele = this.array[i][j];
-                                if (!(ele.style.background == "#000000"))
-                                {
+                                if (!(ele.style.background == "#000000")) {
                                     ele.style.background = colc;
                                 }
                             }
@@ -667,10 +664,9 @@
         function clearOut(event) {
             let k = 0;
             names = [];
-            for (; k < colors.length; ++k)
-            {
+            for (; k < colors.length; ++k) {
                 let elem = document.getElementById(k + " name");
-                elem.value = (elem.value != '') ? elem.value : "Player " + (1+k);
+                elem.value = (elem.value != '') ? elem.value : "Player " + (1 + k);
                 names.push(elem.value);
             }
             document.querySelector("body").innerHTML = '';
