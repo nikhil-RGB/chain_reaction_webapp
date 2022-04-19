@@ -1,0 +1,10 @@
+body {
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwallpapercave.com%2Fwp%2FlU6Rg4h.jpg&f=1&nofb=1');
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+#main_holderA {
+    padding-left: 40%;
+}
