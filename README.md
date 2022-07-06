@@ -21,8 +21,9 @@ Have fun!
 
 ### How to use
 
-<br>
 <a href="https://nikhil-rgb.github.io/apps/chain-reaction/index.html">Try the web app from here!</a>
 <br>
-If you liked this game, considering downloading the desktop version, as it has a much better UI and plenty of features that the web version does not.
+<br/>
+If you liked this game, considering downloading the desktop version, as it has a much better UI and plenty of features that the web version does not.<br/>
+<br/>
 <a href="https://github.com/nikhil-RGB/chain_reaction_desktop/releases/tag/1.0.0">Check the Desktop version out here!</a>
